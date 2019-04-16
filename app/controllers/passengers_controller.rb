@@ -8,7 +8,7 @@ class PassengersController < ApplicationController
     @passenger = Passenger.find_by(id: passenger_id)
     unless @passenger
       head :not_found
-      redirect_to main
+      redirect_to passengers_path
     end
   end
 
@@ -25,6 +25,36 @@ class PassengersController < ApplicationController
     end
     @passenger.save
     redirect_to passenger_path
+  end
+
+  def edit
+    @passenger = Passenger.find_by(id: params[:id])
+    unless @passenger
+      redirect_to passengers_path
+    end
+  end
+
+  def update
+    @passenger = Passenger.fund_by(id: params[:id])
+    unless @passenger
+      redirect_to passengers_path
+    end
+    passenger.update!(task_params)
+    redirect_to passenger_path(passenger)
+  end
+
+  def destroy
+    @passenger = Passenger.find_by(id: params[:id])
+    unless @passenger
+      head :not_found
+      return
+    end
+    @passenger.destroy
+    redirect_to passengers_path
+  end
+
+  def request_trip
+    @passenger = Passenger.find_by(id: params[:id])
   end
 
   private

@@ -2,12 +2,10 @@
 
 one:
   name: MyString
-  string,: MyString
   phone_num: MyString
-  string: MyString
+
 
 two:
   name: MyString
-  string,: MyString
   phone_num: MyString
-  string: MyString
+

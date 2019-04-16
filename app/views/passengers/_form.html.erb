@@ -1,0 +1,10 @@
+<%= form_with model: @book do |f| %>
+  <p>Please provide the following information to save your passenger to our database:</p>
+<%= f.label :name %>
+<%= f.text_field :name, placeholder: "a passenger" %>
+<% f.label :phone_num %>
+<%= f.text_field :phone_num, placeholder: "phone number" %>
+<%= f.submit action_name %>
+
+
+<% end %>

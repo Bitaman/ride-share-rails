@@ -4,5 +4,14 @@
 </li>
 <li>
 <%= @passenger.phone_num %>
+</li>
+<li>
+Total spending:<%= @passenger.total_amount %>
+</li>
+<li>
+<strong>Rating</strong>
+<%= form_with model: @book do |f| %>
+<%= f.submit "Request trip" %>
+<% end %>
 </%= image_tag @passenger.name.downcase + ".jpg" %>
 </ul>
