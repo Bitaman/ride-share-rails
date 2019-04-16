@@ -14,7 +14,9 @@
     <h1> Ada Ride Share </h1>
       <nav>
         <%= link_to "Passengers", passengers_path %>
+        <%= link_to "Add passenger", new_passenger_path %>
         <%= link_to "Drivers", drivers_path %>
+        <%= link_to "Add driver", new_driver_path %>
       </nav>
     </header>
     <%= yield %>

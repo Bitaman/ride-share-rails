@@ -18,13 +18,12 @@ class PassengersController < ApplicationController
 
   def create
     @passenger = Passenger.new(passenger_params)
-    unless params["passenger"]
-      render :new,
-             status: bad_request
-      return
+    successful = @passenger.save
+    if successful
+      redirect_to passengers_path
+    else
+      render :new, status: :bad_request
     end
-    @passenger.save
-    redirect_to passenger_path
   end
 
   def edit
@@ -59,7 +58,7 @@ class PassengersController < ApplicationController
 
   private
 
-  def strong_params
-    return params.require(:task).permit(:name, :phone_num)
+  def passenger_params
+    return params.require(:passenger).permit(:name, :phone_num)
   end
 end
