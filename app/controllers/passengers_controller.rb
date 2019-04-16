@@ -1,12 +1,12 @@
 class PassengersController < ApplicationController
   def index
-    @passenger = Passengers.all
+    @passenger = Passenger.all
   end
 
   def show
     passenger_id = params[:id]
-    passenger = Passenger.find_by(id: passenger_id)
-    unless passenger
+    @passenger = Passenger.find_by(id: passenger_id)
+    unless @passenger
       head :not_found
       redirect_to main
     end
@@ -30,6 +30,6 @@ class PassengersController < ApplicationController
   private
 
   def strong_params
-    return params.require(:task).permit(:name)
+    return params.require(:task).permit(:name, :phone_num)
   end
 end
