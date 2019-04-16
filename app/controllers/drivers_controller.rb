@@ -1,4 +1,8 @@
 class DriversController < ApplicationController
+  def index
+    @drivers = Driver.all
+  end
+
   def new # form, needs a view
     @driver = Driver.new
   end
@@ -12,17 +16,15 @@ class DriversController < ApplicationController
   end
 
   def show # shows a view
-    @driver = Driver.find_by(params[:id])
+    @driver = Driver.find_by(id: params[:id])
 
     unless @driver
       head :not_found
-      #redirect_to root_path
     end
-    #redirect_to drivers path or root_path?
   end
 
   def edit # form, needs a view to update info on a driver
-    @driver = Driver.find_by(params[:id])
+    @driver = Driver.find_by(id: params[:id])
 
     unless @driver
       head :not_found
@@ -30,7 +32,7 @@ class DriversController < ApplicationController
   end
 
   def update # takes info from form, doesn't need @
-    driver = Driver.find_by(params[:id])
+    driver = Driver.find_by(id: params[:id])
 
     unless driver
       head :not_found
@@ -42,7 +44,7 @@ class DriversController < ApplicationController
   end
 
   def destroy # removes a driver from list of drivers
-    driver = Driver.find_by(params[:id])
+    driver = Driver.find_by(id: params[:id])
      
     unless driver
       head :not_found

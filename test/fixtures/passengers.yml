@@ -3,7 +3,10 @@
 one:
   name: MyString
   phone_num: MyString
+<<<<<<< HEAD
 
+=======
+>>>>>>> 220f5ba210f3face8c2fbda090095b99422beea3
 
 two:
   name: MyString

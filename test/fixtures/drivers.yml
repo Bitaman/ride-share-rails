@@ -3,9 +3,16 @@
 one:
   name: MyString
   vin: MyString
+<<<<<<< HEAD
 
 
 two:
   name: MyString
   vin: MyString
   
+=======
+
+two:
+  name: MyString
+  vin: MyString
+>>>>>>> 220f5ba210f3face8c2fbda090095b99422beea3
