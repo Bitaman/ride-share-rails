@@ -1,5 +1,20 @@
+<% if @driver.errors.messages.any? %>
+  <section class="error-messages">
+    There were some issues with your submission
+    <ul>
+      <% @driver.errors.messages.each do |column, problem_list| %>
+        <% problem_list.each do |problem| %>
+          <li>
+            <%= column %>: <%= problem %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </section>
+<% end %>
+
 <%= form_with model: @driver, class: 'driver-form' do |f| %>
-  <p>Please fill out this book's information</p>
+  <p>Please fill out this Driver's information</p>
 
   <div>
     <%= f.label :name, "Please enter a name" %>

@@ -1,10 +1,12 @@
 require "test_helper"
 
 describe DriversController do
-  let(:driver) { Driver.create(name: "Jeremy Woburn", vin: 2001222) }
+  before do
+    @driver = Driver.create!(name: "Jeremy Woburn", vin: 2001222)
+  end
 
   describe "index" do
-    it "drivers index renders without crashing" do
+    it "renders drivers index without crashing" do
       Driver.create!(name: "Ted Willy", vin: 2)
 
       get drivers_path
@@ -23,13 +25,14 @@ describe DriversController do
 
   describe "show" do
     it "works when given a driver id that exists" do
-      get driver_path(driver)
+      
+      get driver_path(@driver)
 
       must_respond_with :ok
     end
 
     it "returns 404 not found when given a non extant id" do 
-      driver_id = 1337
+      driver_id = Driver.last.id + 1
 
       get driver_path(driver_id)
     
@@ -38,15 +41,37 @@ describe DriversController do
   end
 
   describe "edit" do
-    # Your tests go here
+    it "will show the form for editing a driver" do 
+      get edit_driver_path(@driver)
+
+      must_respond_with :ok
+    end 
+
+    it "will respond with 404 if not found" do
+      driver_id = Driver.last.id + 1
+
+      get edit_driver_path(driver_id)
+
+      must_respond_with :not_found
+    end
   end
 
   describe "update" do
-    # Your tests go here
+    let(:driver_data) { {name: "changed name"} }
+
+    it "successfully makes updates to a driver" do 
+      @driver.assign_attributes(driver_data)
+      expect(@driver).must_be :valid?
+      @driver.reload 
+
+      get edit_driver_path(@driver)
+    end
   end
 
   describe "new" do
-    # Your tests go here
+    # get new_driver_path
+
+    # must_respond_with :ok
   end
 
   describe "create" do
