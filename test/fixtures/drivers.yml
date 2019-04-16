@@ -2,12 +2,8 @@
 
 one:
   name: MyString
-  string: MyString
   vin: MyString
-  integer: MyString
 
 two:
   name: MyString
-  string: MyString
   vin: MyString
-  integer: MyString

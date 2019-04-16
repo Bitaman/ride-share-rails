@@ -20,9 +20,7 @@ class DriversController < ApplicationController
 
     unless @driver
       head :not_found
-      #redirect_to root_path
     end
-    #redirect_to drivers path or root_path?
   end
 
   def edit # form, needs a view to update info on a driver
