@@ -1,4 +1,22 @@
-<%= form_with model: @book do |f| %>
+<% if @passenger.errors.messages.any? %>
+  <section class="error-messages">
+    There were some issues with your submission
+    <ul>
+      <% @passenger.errors.messages.each do |column, problem_list| %>
+        <% problem_list.each do |problem| %>
+          <li>
+            <%= column %>: <%= problem %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </section>
+<% end %>
+
+
+
+
+<%= form_with model: @passenger do |f| %>
   <p>Please provide the following information to save your passenger to our database:</p>
 <%= f.label :name %>
 <%= f.text_field :name, placeholder: "a passenger" %>

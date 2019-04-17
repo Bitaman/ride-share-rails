@@ -4,8 +4,6 @@ one:
   name: MyString
   vin: MyString
 
-
 two:
   name: MyString
   vin: MyString
-  
