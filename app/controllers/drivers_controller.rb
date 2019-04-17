@@ -59,7 +59,7 @@ class DriversController < ApplicationController
 
     driver.destroy
 
-    # redirect_to drivers_path
+    redirect_to drivers_path
   end
 
   def driver_params

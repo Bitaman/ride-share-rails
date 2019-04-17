@@ -145,6 +145,28 @@ describe DriversController do
   end
 
   describe "destroy" do
-    # Your tests go here
+    it "can remove a driver from the list" do 
+      driver = Driver.last
+      
+      expect {
+        delete driver_path(driver)
+      }.must_change 'Driver.count', -1
+
+      deleted_driver = Driver.find_by(id: driver.id)
+      expect(deleted_driver).must_be_nil
+
+      must_respond_with :redirect
+      must_redirect_to drivers_path
+    end
+
+    it "sends a 404 if driver not found" do 
+      driver_id = 1337
+
+      expect {
+        delete driver_path(driver_id)
+      }.wont_change "Driver.count"
+
+      must_respond_with :not_found
+    end
   end
 end
