@@ -81,6 +81,13 @@ describe DriversController do
     end
 
     it "displays 404 for nonexistant driver" do 
+      driver_id = Driver.last.id + 1
+
+      patch driver_path(driver_id), params: driver_data
+
+      must_respond_with :not_found
+      # assert_template :edit
+
     end
 
     it "renders edit form for invalid parameters" do 

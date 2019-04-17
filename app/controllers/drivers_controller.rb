@@ -35,14 +35,15 @@ class DriversController < ApplicationController
   end
 
   def update # takes info from form, doesn't need @
-    driver = Driver.find_by(id: params[:id])
+    @driver = Driver.find_by(id: params[:id])
 
-    unless driver
+    unless @driver
       head :not_found
+      return
     end
 
-    if driver.update(driver_params)
-      redirect_to driver_path(driver)
+    if @driver.update(driver_params)
+      redirect_to driver_path(@driver)
     else
       render :edit, status: bad_request
     end
