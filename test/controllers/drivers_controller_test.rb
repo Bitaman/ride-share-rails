@@ -112,7 +112,36 @@ describe DriversController do
   end
 
   describe "create" do
-    # Your tests go here
+    it "will successfully add a driver to list" do
+      driver_params = {
+        driver: {
+          name: "Theo Leo",
+          vin: 12345,
+        },
+      }
+
+      expect {
+        post drivers_path, params: driver_params
+      }.must_change 'Driver.count', +1
+
+      must_respond_with :redirect
+      must_redirect_to drivers_path
+    end
+
+    it "will render the new form with invalid params" do
+      driver_params = {
+        driver: {
+          name: "",
+          vin: 12345
+        }
+      } 
+
+      expect {
+        post drivers_path, params: driver_params
+      }.wont_change "Driver.count"
+
+      must_respond_with :bad_request
+    end
   end
 
   describe "destroy" do
