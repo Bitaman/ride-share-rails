@@ -128,7 +128,7 @@ describe DriversController do
       must_redirect_to drivers_path
     end
 
-    it "will render the new form with invalid params" do
+    it "will send bad request if invalid params are passed" do
       driver_params = {
         driver: {
           name: "",
