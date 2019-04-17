@@ -79,6 +79,12 @@ describe DriversController do
 
       expect(@driver.name).must_equal driver_data[:driver][:name]
     end
+
+    it "displays 404 for nonexistant driver" do 
+    end
+
+    it "renders edit form for invalid parameters" do 
+    end
   end
 
   describe "new" do
