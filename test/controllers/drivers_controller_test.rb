@@ -91,6 +91,15 @@ describe DriversController do
     end
 
     it "renders edit form for invalid parameters" do 
+      driver_data[:driver][:name] = ""
+
+      @driver.assign_attributes(driver_data[:driver])
+      expect(@driver).wont_be :valid?
+      @driver.reload
+
+      patch driver_path(@driver), params: driver_data
+
+      must_respond_with :bad_request
     end
   end
 
