@@ -57,14 +57,27 @@ describe DriversController do
   end
 
   describe "update" do
-    let(:driver_data) { {name: "changed name"} }
+    let(:driver_data) {
+      {
+        driver: {
+          name: "changed name"
+        },
+      }
+    }
 
     it "successfully makes updates to a driver" do 
-      @driver.assign_attributes(driver_data)
+      @driver.assign_attributes(driver_data[:driver])
       expect(@driver).must_be :valid?
       @driver.reload 
 
-      get edit_driver_path(@driver)
+      patch driver_path(@driver), params: driver_data
+      
+      must_respond_with :redirect
+      must_redirect_to driver_path(@driver)
+
+      @driver.reload
+
+      expect(@driver.name).must_equal driver_data[:driver][:name]
     end
   end
 
