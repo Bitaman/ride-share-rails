@@ -1,6 +1,6 @@
 require "test_helper"
 
-describe TripsController do
+describe "TripsController" do
   describe "show" do
     # Your tests go here
   end
