@@ -10,3 +10,16 @@
   <strong> Request Driver </strong>
   </li>
 <end>
+
+<Driver Trips>
+<table class="indidual-driver-table">
+  <% @driver.trips.each do |trip| %>
+    <tr>
+      <td> <%= trip.id %></td>
+      <td> <%= trip.date %></td>
+      <td> <%= "$#{ (trip.cost * 0.01).round(2) }" %></td>
+      <td> <%= trip.passenger.name %><td>
+      <td> <%= trip.rating %></td>
+    </tr>
+  <% end%>
+</table>

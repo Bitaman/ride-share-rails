@@ -1,13 +1,14 @@
 <h2>Ride Share Drivers</h2>
 
-<% @drivers.each do |driver| %>
-  <div class="driver-snippet">
-    <%= "Driver Photo" %>
-    <%= link_to driver.name, driver_path(driver) %>
-    <%= link_to "Edit", edit_driver_path(driver) %>
-    <%= link_to "Delete", driver_path(driver), method: :delete, data: { confirm: "Press Ok to confirm deletion" } %>
-  </div>
-<% end %>
-
+<table class="driver-snippet">
+  <% @drivers.each do |driver| %>
+    <tr>
+    <td> <%= "Driver Photo" %></td>
+    <td> <%= link_to driver.name, driver_path(driver) %> </td>
+    <td> <%= link_to "Edit", edit_driver_path(driver) %> </td>
+    <td> <%= link_to "Delete", driver_path(driver), method: :delete, data: { confirm: "Press Ok to confirm deletion" } %> </td>
+    </tr>
+  <% end %>
+</table>
 
 
