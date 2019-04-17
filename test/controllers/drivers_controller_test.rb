@@ -104,9 +104,11 @@ describe DriversController do
   end
 
   describe "new" do
-    # get new_driver_path
+    it "renders the form to add a driver" do 
+      get new_driver_path
 
-    # must_respond_with :ok
+      must_respond_with :ok
+    end
   end
 
   describe "create" do
