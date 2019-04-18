@@ -10,8 +10,20 @@ Total spending: $<%= @passenger.total_amount/100.0 %>
 </li>
 <li>
 <strong>Rating</strong>
-<%= form_with model: @book do |f| %>
+<%= form_with model: @passenger do |f| %>
 <%= f.submit "Request trip" %>
 <% end %>
 </%= image_tag @passenger.name.downcase + ".jpg" %>
 </ul>
+
+<table class="individual-passenger-table">
+  <% @passenger.trips.each do |trip| %>
+    <tr>
+      <td> <%= link_to trip.id, trip_path(id: trip.id) %></td>
+      <td> <%= trip.date %></td>
+      <td> <%= "$#{ (trip.cost * 0.01).round(2) }" %></td>
+      <td> <%= trip.driver.name %><td>
+      <td> <%= trip.rating %></td>
+    </tr>
+  <% end%>
+</table>

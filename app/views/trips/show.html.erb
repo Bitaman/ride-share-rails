@@ -1,0 +1,10 @@
+<table class="individual-trip-table">
+ 
+    <tr>
+      <td> <%= link_to @trip.id, trip_path(@trip) %></td>
+      <td> <%= @trip.date %></td>
+      <td> <%= @trip.cost * 0.01 %></td>
+      <td> <%= @trip.driver.name %><td>
+      <td> <%= @trip.rating %></td>
+    </tr>
+</table>

@@ -1,0 +1,12 @@
+<h3>Trips list</h3>
+<table class="trip-table">
+  <% @trips.each do |trip| %>
+    <tr>
+      <td> <%= trip.id %></td>
+      <td> <%= trip.date %></td>
+      <td> <%= "$#{ (trip.cost * 0.01).round(2) }" %></td>
+      <td> <%= trip.passenger.name %><td>
+      <td> <%= trip.rating %></td>
+    </tr>
+  <% end%>
+</table>
