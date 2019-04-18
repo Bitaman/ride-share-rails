@@ -15,14 +15,18 @@ class Driver < ApplicationRecord
   end
 
   def average_rating
-    rating = 0
-    trips = self.trips.length
+    if self.trips != []
+      rating = 0
+      trips = self.trips.length
 
-    self.trips.each do |trip|
-     rating += trip.rating
+      self.trips.each do |trip|
+      rating += trip.rating
+      end
+      average_rating = rating / trips
+      return average_rating
+    else
+      return "Data not available."
     end
-
-  average_rating = rating / trips
-  return average_rating
+    
   end
 end

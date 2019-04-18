@@ -4,7 +4,10 @@
     <%= @driver.name %> 
   </li>
   <li>
-    <%= @driver.vin %>
+   Vin: <%= @driver.vin %>
+  </li>
+  <li>
+    Average rating: <%= @driver.average_rating%>
   </li>
   <li>
   <% if @driver.available %>
@@ -37,7 +40,15 @@
         <td> <%= "$#{ (trip.cost * 0.01).round(2) }" %></td>
         <td> <%= trip.passenger.name %><td>
         <td> <%= trip.rating %></td>
+        <td> <%= link_to "Edit" %>
+             <%= link_to "Delete"%>
+        </td>
       </tr>
-    </tbody>
+    </tbody> 
   <% end%>
 </table>
+
+<div class="driver-options">
+  <%= link_to "Edit", edit_driver_path(@driver), method: :patch %>
+  <%= link_to "Delete", drivers_path(@driver), method: :delete %>
+</div>

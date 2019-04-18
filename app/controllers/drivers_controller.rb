@@ -76,7 +76,7 @@ class DriversController < ApplicationController
       driver.update(available: true)
     end
 
-    redirect_to driver_path
+    redirect_to driver_path(driver.id)
   end
 
   def driver_params

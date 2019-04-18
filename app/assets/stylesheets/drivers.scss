@@ -5,3 +5,8 @@
 .table-show tbody:nth-last-of-type(odd) {
  background: lightblue;
 }
+
+.table-show {
+  border-collapse: collapse;
+  width: 800px;
+}
