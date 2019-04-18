@@ -7,10 +7,10 @@ class Driver < ApplicationRecord
   def total_earnings
     totals = 0
     self.trips.each do |trip|
-     trip_dollars = (((trip.cost * 0.01 )* 0.8) - 1.65)
+      trip_dollars = (((trip.cost * 0.01) * 0.8) - 1.65)
       totals += trip_dollars
     end
-    
+
     return totals.round(2)
   end
 
@@ -20,13 +20,12 @@ class Driver < ApplicationRecord
       trips = self.trips.length
 
       self.trips.each do |trip|
-      rating += trip.rating
+        rating += trip.rating
       end
       average_rating = rating / trips
       return average_rating
     else
-      return "Data not available."
+      return "Ratings unavailable."
     end
-    
   end
 end
