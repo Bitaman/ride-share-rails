@@ -10,9 +10,9 @@ Total spending: $<%= @passenger.total_amount/100.0 %>
 </li>
 <li>
 <strong>Rating</strong>
-<%= form_with model: @passenger do |f| %>
-<%= f.submit "Request trip" %>
-<% end %>
+
+<%= link_to "Request trip", passenger_trips_path(@passenger.id), method: :post %>
+
 </%= image_tag @passenger.name.downcase + ".jpg" %>
 </ul>
 
