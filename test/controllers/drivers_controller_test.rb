@@ -26,7 +26,7 @@ describe DriversController do
   describe "show" do
     it "works when given a driver id that exists" do
       
-      get driver_path(@driver)
+      get driver_path(@driver.id)
 
       must_respond_with :ok
     end
@@ -168,5 +168,23 @@ describe DriversController do
 
       must_respond_with :not_found
     end
+  end
+
+  describe "availability toggle" do 
+    it "allows a driver to toggle online/offline " do 
+      
+
+      driver_id = @driver.id
+      patch toggle_available_path(driver_id)
+      @driver.reload
+
+      expect(@driver.available).must_equal false
+
+      patch toggle_available_path(driver_id)
+      @driver.reload
+
+      expect(@driver.available).must_equal true
+    end
+
   end
 end

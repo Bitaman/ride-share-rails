@@ -10,13 +10,41 @@
   </head>
 
   <body>
-    <header>
-    <h1> Ada Ride Share </h1>
+     <header>
       <nav>
-        <%= link_to "Passengers", passengers_path %>
-        <%= link_to "Add passenger", new_passenger_path %>
-        <%= link_to "Drivers", drivers_path %>
-        <%= link_to "Add driver", new_driver_path %>
+        <ul>
+          <div>
+            <li>
+              <%= link_to "Ada Rideshare", root_path %>
+            </li>
+          </div>
+          <div class="menu">
+            <li>
+              Drivers
+            </li>
+            <div class="dropdown-menu">
+              <li>
+                <%= link_to "List Drivers", drivers_path %>
+              </li>
+              <li>
+                <%= link_to "Add a Driver", new_driver_path %>
+              </li>
+            </div>
+          </div>
+          <div class="menu">
+            <li>
+              Passengers
+            </li>
+            <div class="dropdown-menu">
+              <li>
+                <%= link_to "List Passengers", passengers_path %>
+              </li>
+              <li>
+                <%= link_to "Add a Passenger", new_passenger_path %>
+              </li>
+            </div>
+          </div>
+        </ul>
       </nav>
     </header>
     <%= yield %>
