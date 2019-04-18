@@ -169,4 +169,13 @@ describe DriversController do
       must_respond_with :not_found
     end
   end
+
+  describe "availability toggle" do 
+    it "allows a driver to toggle online/offline " do 
+      # a trip can be created with this driver in online status
+
+      # a trip cannot be created for a driver who is offline
+    end
+
+  end
 end

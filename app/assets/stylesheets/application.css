@@ -13,3 +13,41 @@
  *= require_tree .
  *= require_self
  */
+
+ a {
+   text-decoration: none;
+   color: black;
+ }
+
+ a:hover {
+  text-decoration: underline;
+}
+
+nav ul {
+  display: grid;
+  flex-direction: row;
+  grid-template-columns: 1fr 1fr 1fr 4fr;
+  background: #dddddd;
+  padding: 1em;
+  list-style: none;
+  top: 0;
+  width: 100%;
+}
+
+ .menu {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: orange;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.menu:hover .dropdown-menu {
+  display: block;
+}

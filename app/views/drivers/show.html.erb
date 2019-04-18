@@ -7,19 +7,37 @@
     <%= @driver.vin %>
   </li>
   <li>
-  <strong> Request Driver </strong>
+  <% if @driver.available %>
+    <%= link_to "Go Online", toggle_available_path(@driver), method: :patch %>
+  <% else %>
+    <%= link_to "Go Offline", toggle_available_path(@driver), method: :patch %>
+  <% end %>
   </li>
 <end>
 
 <Driver Trips>
-<table class="indidual-driver-table">
-  <% @driver.trips.each do |trip| %>
+<table class="table-show">
+    <thead>
     <tr>
-      <td> <%= trip.id %></td>
-      <td> <%= trip.date %></td>
-      <td> <%= "$#{ (trip.cost * 0.01).round(2) }" %></td>
-      <td> <%= trip.passenger.name %><td>
-      <td> <%= trip.rating %></td>
+      <th>Trip Id</th>
+      <th>Date</th>
+      <th>Driver</th>
+      <th>Passenger</th>
+      <th>Price</th>
+      <th>Rating</th>
+      <th>Options</th>
     </tr>
+      </thead>
+  <% @driver.trips.each do |trip| %>
+    <tbody>
+      <tr>
+        <td> <%= trip.id %></td>
+        <% d = trip.date %>
+        <td> <%= d.strftime("%m/%d/%Y") %></td>
+        <td> <%= "$#{ (trip.cost * 0.01).round(2) }" %></td>
+        <td> <%= trip.passenger.name %><td>
+        <td> <%= trip.rating %></td>
+      </tr>
+    </tbody>
   <% end%>
 </table>

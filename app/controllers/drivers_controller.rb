@@ -62,6 +62,23 @@ class DriversController < ApplicationController
     redirect_to drivers_path
   end
 
+  def toggle_available
+    driver = Driver.find_by(id: params[:id])
+
+    unless driver
+      redirect_to drivers_path
+      return
+    end
+
+    if driver.available
+      driver.update(available: false)
+    else
+      driver.update(available: true)
+    end
+
+    redirect_to driver_path
+  end
+
   def driver_params
     return params.require(:driver).permit(:name, :vin)
   end
