@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :passengers do
     resources :trips, only: [:index, :create]
   end
-  resources :trips, only: [:show]
+  resources :trips, only: [:edit, :show]
   resources :passengers
 
   patch "drivers/:id/toggle_available", to: "drivers#toggle_available", as: "toggle_available"
