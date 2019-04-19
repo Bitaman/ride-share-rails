@@ -153,5 +153,33 @@ describe TripsController do
     end
   end
   describe "completed trip" do
+    before do
+      @passenger = Passenger.create!(name: "test passenger", phone_num: "123456")
+      @driver = Driver.create!(name: "test driver", vin: "vin")
+      @trip = Trip.create!(cost: 10, date: Time.now, driver_id: @driver.id, passenger_id: @passenger.id)
+    end
+    let(:trip_data) {
+      {
+        trip: {
+          rating: 5,
+        },
+      }
+    }
+
+    it "changes the data in the model" do
+      @trip.assign_attributes(trip_data[:trip])
+      expect(@trip).must_be :valid?
+      @trip.reload
+
+      # Act
+      patch trip_path(@trip), params: trip_data
+
+      # Assert
+      must_respond_with :redirect
+      must_redirect_to trip_path(@trip)
+
+      @trip.reload
+      expect(@trip.rating).must_equal(trip_data[:trip][:rating])
+    end
   end
 end
