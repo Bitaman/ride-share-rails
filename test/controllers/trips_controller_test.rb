@@ -116,6 +116,7 @@ describe TripsController do
       get trip_path(trip_id)
       must_respond_with :not_found
     end
+
     it "render the show page for each trip" do
       get trip_path(@trip.id)
       must_respond_with :ok
