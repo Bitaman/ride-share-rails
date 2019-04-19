@@ -50,5 +50,5 @@
 
 <div class="driver-options">
   <%= link_to "Edit", edit_driver_path(@driver), method: :patch %>
-  <%= link_to "Delete", drivers_path(@driver), method: :delete %>
+  <%= link_to "Delete", driver_path(@driver), method: :delete, data: { confirm: "Press Ok to continue."}%>
 </div>
