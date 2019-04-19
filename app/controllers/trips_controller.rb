@@ -65,6 +65,20 @@ class TripsController < ApplicationController
     redirect_to trips_path
   end
 
+  def completed_trip
+    passenger_id = params[:id]
+    trip = Trip.find_by(passenger_id: passenger_id, rating: nil)
+    succesful = trip.update(rating: params[:rating])
+
+    if succesful 
+      redirect_to passenger_path(passenger_id)
+    else
+      head :bad_request
+      return
+    end
+
+  end
+
   def trip_params
     return params.require(:trip).permit(:rating, :cost, :date, :passenger, :driver)
   end
