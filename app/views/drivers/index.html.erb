@@ -1,14 +1,20 @@
 <h3>Ride Share Drivers</h3>
+<style>
+  table thead { display:block; }
+  table tbody { height:450px; overflow-y:scroll; display:block; }
+</style>
 
 <table class="driver-snippet">
-  <% @drivers.each do |driver| %>
-    <tr>
-    <td> <%= "Driver Photo" %></td>
-    <td> <%= link_to driver.name, driver_path(driver) %> </td>
-    <td> <%= link_to "Edit", edit_driver_path(driver) %> </td>
-    <td> <%= link_to "Delete", driver_path(driver), method: :delete, data: { confirm: "Press Ok to confirm deletion" } %> </td>
-    </tr>
-  <% end %>
+  <tbody>
+    <% @drivers.each do |driver| %>
+      <tr>
+      <td> <%= "Driver Photo" %></td>
+      <td> <%= link_to driver.name, driver_path(driver) %> </td>
+      <td> <%= link_to "Edit", edit_driver_path(driver) %> </td>
+      <td> <%= link_to "Delete", driver_path(driver), method: :delete, data: { confirm: "Press Ok to confirm deletion" } %> </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
 

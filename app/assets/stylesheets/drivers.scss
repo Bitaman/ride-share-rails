@@ -6,12 +6,9 @@ h3 {
 text-align: center;
  
 }
-.table-show tbody:nth-last-of-type(odd) {
-  background: lightblue;
-}
+
 
 .table-show {
-  border-collapse: collapse;
   width: 800px;
 }
 
@@ -19,8 +16,4 @@ text-align: center;
   width: 800px;
   margin-left: auto;
   margin-right: auto;
-}
-
-tr:nth-child(10) {
-  page-break-after: always;
 }

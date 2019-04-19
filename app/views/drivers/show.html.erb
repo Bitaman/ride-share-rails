@@ -24,21 +24,21 @@
     <tr>
       <th>Trip Id</th>
       <th>Date</th>
-      <th>Driver</th>
       <th>Passenger</th>
       <th>Price</th>
       <th>Rating</th>
       <th>Options</th>
     </tr>
   </thead>
+    <tbody>
   <% @driver.trips.each do |trip| %>
     <tbody>
       <tr>
         <td> <%= trip.id %></td>
         <% d = trip.date %>
         <td> <%= d.strftime("%m/%d/%Y") %></td>
+        <td> <%= link_to trip.passenger.name, passenger_path(trip.passenger.id) %></td>
         <td> <%= "$#{ (trip.cost * 0.01).round(2) }" %></td>
-        <td> <%= trip.passenger.name %><td>
         <td> <%= trip.rating %></td>
         <td> <%= link_to "Edit" %>
              <%= link_to "Delete"%>
