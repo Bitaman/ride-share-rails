@@ -24,4 +24,48 @@ class TripsController < ApplicationController
       render :new, status: :bad_request
     end
   end
+
+  def edit
+    trip_id = params[:id]
+
+    @trip = Trip.find_by(id: trip_id)
+
+    unless @trip
+      head :not_found
+    end
+  end
+
+  def update
+    @trip = Trip.find_by(id: params[:id])
+
+    unless @trip
+      head :not_found
+      return
+    end
+
+    if @trip.update(trip_params)
+      redirect_to trip_path(@trip)
+    else
+      render :edit, status: :bad_request
+    end
+  end
+
+  def destroy
+    trip_id = params[:id]
+
+    trip = Trip.find_by(id: trip_id)
+
+    unless trip
+      head :not_found
+      return
+    end
+
+    trip.destroy
+
+    redirect_to trips_path
+  end
+
+  def trip_params
+    return params.require(:trip).permit(:rating, :cost, :date, :passenger, :driver)
+  end
 end
