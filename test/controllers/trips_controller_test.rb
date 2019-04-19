@@ -9,7 +9,7 @@ describe TripsController do
       @passenger = Passenger.create!(name: "test passenger", phone_num: "123456")
       @driver = Driver.create!(name: "test driver", vin: "vin")
     end
-    
+
     it "creates a new trip" do
       # Arrange
       trip_data = {
@@ -136,7 +136,7 @@ describe TripsController do
       }.must_change "Trip.count", -1
       #Assert
       must_respond_with :redirect
-      must_redirect_to passenger_path
+      must_redirect_to root_path
       deleted_trip = Trip.find_by(id: @trip.id)
       expect(deleted_trip).must_be_nil
     end

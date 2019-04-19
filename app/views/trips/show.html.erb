@@ -20,7 +20,7 @@
         <% else %>
           <td> Trip in progress </td>
         <% end %>
-        <td> <%= link_to "Delete" trip_path(@trip), method: :delete, data: { confirm: "Press Ok to continue"} %>
+        <td> <%= link_to "Delete", trip_path(@trip), method: :delete, data: { confirm: "Press Ok to continue"} %>
             <%= link_to "Edit", edit_trip_path(@trip) %> 
         </td>
       </tr>
