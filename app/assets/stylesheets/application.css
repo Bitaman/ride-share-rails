@@ -15,6 +15,12 @@
  */
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background: url(https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero-00e10b1f.jpg);
+  background-position: 0px 0;
+}
+
+h1 {
+  font-size: 500%
 }
 
 
@@ -31,7 +37,6 @@ nav ul {
   display: grid;
   flex-direction: row;
   grid-template-columns: 1fr 1fr 1fr 4fr;
-  background: #dddddd;
   padding: 1em;
   list-style: none;
   top: 0;
@@ -54,6 +59,10 @@ nav ul {
 
 .menu:hover .dropdown-menu {
   display: block;
+}
+
+.dropdown-menu li a {
+  text-emphasis: bold;
 }
 
 .Headliner {
@@ -117,4 +126,10 @@ nav ul {
   top: 0px;
   box-shadow: 0px 0px 0px rgba( 15, 165, 60, 0.0 );
   background: rgba( 20, 224, 133, 1 );
+}
+
+.homepage-links {
+  position: fixed;
+  bottom: 0;
+  left: 0;
 }
