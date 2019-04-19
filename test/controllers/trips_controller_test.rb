@@ -10,21 +10,6 @@ describe TripsController do
       @driver = Driver.create!(name: "test driver", vin: "vin")
     end
 
-    # it "creates the generated trip" do
-    #   trip_data = {
-    #     trip: {
-    #       cost: 10,
-    #       date: Time.now,
-    #       price: rand(1.00..300.00).round(2),
-    #       passenger_id: passenger.id,
-    #       driver_id: driver.id,
-    #     },
-    #   }
-
-    #   expect {
-    #     post passenger_trips_path(trip_data[:passenger_id]), params: trip_data
-    #   }.must_change "Trip.count", +1
-    # end
     it "creates a new trip" do
       # Arrange
       trip_data = {
@@ -131,6 +116,7 @@ describe TripsController do
       get trip_path(trip_id)
       must_respond_with :not_found
     end
+
     it "render the show page for each trip" do
       get trip_path(@trip.id)
       must_respond_with :ok
@@ -151,7 +137,7 @@ describe TripsController do
       }.must_change "Trip.count", -1
       #Assert
       must_respond_with :redirect
-      must_redirect_to passenger_path
+      must_redirect_to root_path
       deleted_trip = Trip.find_by(id: @trip.id)
       expect(deleted_trip).must_be_nil
     end
