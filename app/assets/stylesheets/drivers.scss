@@ -20,3 +20,7 @@ text-align: center;
   margin-left: auto;
   margin-right: auto;
 }
+
+tr:nth-child(10) {
+  page-break-after: always;
+}
