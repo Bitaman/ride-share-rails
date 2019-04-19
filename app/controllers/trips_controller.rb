@@ -71,7 +71,7 @@ class TripsController < ApplicationController
     succesful = trip.update(rating: params[:rating])
 
     if succesful 
-      redirect_to passenger_path(passenger_id)
+      redirect_to passenger_path
     else
       head :bad_request
       return

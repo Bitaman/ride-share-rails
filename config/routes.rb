@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :trips, only: [:index, :create]
   end
   resources :trips, only: [:edit, :show]
-  resources :passengers
+  patch '/passengers/:id/completed_trip', to: 'trips#completed_trip', as: 'completed_trip'
 end
 
 

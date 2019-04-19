@@ -1,12 +1,27 @@
 <table class="individual-trip-table">
- 
-    <tr>
-      <td> <%= link_to @trip.id, trip_path(@trip) %></td>
-      <td> <%= @trip.date %></td>
-      <td> <%= @trip.cost * 0.01 %></td>
-      <td> <%= @trip.driver.name %><td>
-      <td> <%= @trip.rating %></td>
-      <td> <%= link_to "Delete"%>
-           <%= link_to "Edit" %>
-    </tr>
+ <thead>
+  <th> ID </th>
+  <th> Date </th>
+  <th> Cost </th>
+  <th> Driver </th>
+  <th> Passenger </th>
+  <th> Rating </th>
+  </thead>
+    <tbody>
+      <tr>
+        <td> <%= link_to @trip.id, trip_path(@trip) %></td>
+        <% d = @trip.date %>
+        <td> <%= d.strftime("%m/%d/%Y") %></td>
+        <td> <%= @trip.cost * 0.01 %></td>
+        <td> <%= link_to @trip.driver.name, driver_path(@trip.driver) %></td>
+        <td> <%= link_to @trip.passenger.name, passenger_path(@trip.passenger) %></td>
+        <% if @trip.rating %>
+          <td> <%= @trip.rating %></td>
+        <% else %>
+          <td> Trip in progress </td>
+        <% end %>
+        <td> <%= link_to "Delete"%>
+            <%= link_to "Edit" %>
+      </tr>
+    </tbody>
 </table>
