@@ -4,14 +4,12 @@ class TripsController < ApplicationController
   end
 
   def show
-    def show
-      trip_id = params[:id]
+    trip_id = params[:id]
 
-      @trip = Trip.find_by(id: trip_id)
+    @trip = Trip.find_by(id: trip_id)
 
-      unless @trip
-        head :not_found
-      end
+    unless @trip
+      head :not_found
     end
   end
 
@@ -62,7 +60,7 @@ class TripsController < ApplicationController
 
     trip.destroy
 
-    redirect_to trips_path
+    redirect_to passenger_path
   end
 
   def completed_trip
@@ -70,13 +68,12 @@ class TripsController < ApplicationController
     trip = Trip.find_by(passenger_id: passenger_id, rating: nil)
     succesful = trip.update(rating: params[:rating])
 
-    if succesful 
+    if succesful
       redirect_to passenger_path
     else
       head :bad_request
       return
     end
-
   end
 
   def trip_params

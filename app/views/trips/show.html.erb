@@ -20,8 +20,8 @@
         <% else %>
           <td> Trip in progress </td>
         <% end %>
-        <td> <%= link_to "Delete"%>
-            <%= link_to "Edit" %>
+        <td> <%= link_to "Delete" %>
+            <%= link_to "Edit", edit_trip_path(@trip) %>
       </tr>
     </tbody>
 </table>
