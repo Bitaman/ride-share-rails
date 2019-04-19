@@ -40,8 +40,8 @@
         <td> <%= link_to trip.passenger.name, passenger_path(trip.passenger.id) %></td>
         <td> <%= "$#{ (trip.cost * 0.01).round(2) }" %></td>
         <td> <%= trip.rating %></td>
-        <td> <%= link_to "Edit" %>
-             <%= link_to "Delete"%>
+        <td> <%= link_to "Edit", edit_trip_path(trip.id) %>
+             <%= link_to "Delete", trip_path(trip.id), method: :delete, data: { confirm: "Press Ok to continue."} %>
         </td>
       </tr>
     </tbody> 
@@ -50,5 +50,5 @@
 
 <div class="driver-options">
   <%= link_to "Edit", edit_driver_path(@driver), method: :patch %>
-  <%= link_to "Delete", drivers_path(@driver), method: :delete %>
+  <%= link_to "Delete", driver_path(@driver), method: :delete, data: { confirm: "Press Ok to continue."}%>
 </div>

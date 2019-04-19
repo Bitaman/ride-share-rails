@@ -143,9 +143,5 @@ nav ul {
 table {
   margin-top: 3rem;
   border-collapse: separate;
-  border-spacing: 5em 0em;
-}
-
-td {
-  padding: 10px 0;
+  border-spacing: 2em 0em;
 }

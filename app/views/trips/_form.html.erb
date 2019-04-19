@@ -17,21 +17,13 @@
   <p>Editing Trip <%= @trip.id %> information</p>
 
   <div>
-    <?% unless @trip.passenger %>
       <%= f.label :passenger %>
       <%= f.select :passenger_id, Passenger.all.map{ |passenger| [passenger.name, passenger.id] } %>
-    <?% else %>
-      <?%= f.hidden_field :passenger_id %>
-    <?% end %>
   </div>
 
   <div>
-    <?% unless @trip.driver %>
       <%= f.label :driver %>
       <%= f.select :driver_id, Driver.all.map{ |driver| [driver.name, driver.id] } %>
-    <?% else %>
-      <?%= f.hidden_field :driver_id %>
-    <?% end %>
   </div>
 
   <div>
