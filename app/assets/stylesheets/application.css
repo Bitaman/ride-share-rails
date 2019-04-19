@@ -17,6 +17,11 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   background: url(https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero-00e10b1f.jpg);
   background-position: 0px 0;
+  background-size: 100%;
+}
+
+header {
+  font-size: 1.3rem;
 }
 
 h1 {
@@ -29,15 +34,15 @@ h1 {
    color: black;
  }
 
+ 
  a:hover {
   text-decoration: underline;
 }
 
 nav ul {
   display: grid;
-  flex-direction: row;
-  grid-template-columns: 1fr 1fr 1fr 4fr;
-  padding: 1em;
+  grid-template-columns: 1fr 1fr 1fr 5fr;
+  margins: 0em 1em 0em 0em;
   list-style: none;
   top: 0;
   width: 100%;
@@ -50,7 +55,8 @@ nav ul {
 .dropdown-menu {
   display: none;
   position: absolute;
-  background-color: lightblue;
+  background-color: lightcoral;
+  opacity: 0.5;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   padding: 12px 16px;
@@ -96,8 +102,8 @@ nav ul {
   font-size: 30px;
   font-family: "Open Sans", Helvetica;
   border-radius: 4px;
-  border-bottom: 1px solid lightblue;
-  background: lightblue;
+  border-bottom: 1px solid lightcoral;
+  background: lightcoral;
   color: #fff;
   box-shadow: 0px 0px 0px rgba( 15, 165, 60, 0.1 );
   
@@ -132,4 +138,14 @@ nav ul {
   position: fixed;
   bottom: 0;
   left: 0;
+}
+
+table {
+  margin-top: 3rem;
+  border-collapse: separate;
+  border-spacing: 5em 0em;
+}
+
+td {
+  padding: 10px 0;
 }

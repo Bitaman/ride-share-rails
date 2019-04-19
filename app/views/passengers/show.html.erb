@@ -23,13 +23,27 @@
 </ul>
 
 <table class="individual-passenger-table">
+ <thead>
+    <tr>
+      <th>Trip Id</th>
+      <th>Date</th>
+      <th>Price</th>
+      <th>Driver</th>
+      <th>Rating</th>
+      <th>Options</th>
+    </tr>
+  </thead>
   <% @passenger.trips.each do |trip| %>
     <tr>
       <td> <%= link_to trip.id, trip_path(id: trip.id) %></td>
-      <td> <%= trip.date %></td>
+      <% d = trip.date %>
+      <td> <%= d.strftime("%m/%d/%Y") %></td>
       <td> <%= "$#{ (trip.cost * 0.01).round(2) }" %></td>
-      <td> <%= trip.driver.name %><td>
+      <td> <%= link_to trip.driver.name, driver_path(trip.driver.id) %></td>
       <td> <%= trip.rating %></td>
+      <td> <%= link_to "Edit" %>
+           <%= link_to "Delete"%>
+      </td>
     </tr>
   <% end %>
 </table>

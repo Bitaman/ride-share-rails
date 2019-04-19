@@ -27,7 +27,7 @@ class Driver < ApplicationRecord
       average_rating = rating / trips
       return average_rating
     else
-      return "Ratings unavailable."
+      return "No Reviews."
     end
   end
 end
