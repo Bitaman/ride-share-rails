@@ -20,7 +20,9 @@ class Driver < ApplicationRecord
       trips = self.trips.length
 
       self.trips.each do |trip|
-        rating += trip.rating
+        if trip.rating
+          rating += trip.rating
+        end
       end
       average_rating = rating / trips
       return average_rating
