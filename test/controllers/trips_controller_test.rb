@@ -9,22 +9,7 @@ describe TripsController do
       @passenger = Passenger.create!(name: "test passenger", phone_num: "123456")
       @driver = Driver.create!(name: "test driver", vin: "vin")
     end
-
-    # it "creates the generated trip" do
-    #   trip_data = {
-    #     trip: {
-    #       cost: 10,
-    #       date: Time.now,
-    #       price: rand(1.00..300.00).round(2),
-    #       passenger_id: passenger.id,
-    #       driver_id: driver.id,
-    #     },
-    #   }
-
-    #   expect {
-    #     post passenger_trips_path(trip_data[:passenger_id]), params: trip_data
-    #   }.must_change "Trip.count", +1
-    # end
+    
     it "creates a new trip" do
       # Arrange
       trip_data = {
