@@ -145,3 +145,8 @@ table {
   border-collapse: separate;
   border-spacing: 2em 0em;
 }
+
+.rand-photo {
+  width: 100px;
+  height: auto;
+} 

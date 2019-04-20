@@ -8,7 +8,7 @@
   <tbody>
     <% @drivers.each do |driver| %>
       <tr>
-      <td> <%= "Driver Photo" %></td>
+      <td> <img class="rand-photo" src='https://images.pexels.com/photos/1625235/pexels-photo-1625235.jpeg?cs=srgb&dl=blur-close-up-cold-1625235.jpg&fm=jpg'> </td>
       <td> <%= link_to driver.name, driver_path(driver) %> </td>
       <td> <%= link_to "Edit", edit_driver_path(driver) %> </td>
       <td> <%= link_to "Delete", driver_path(driver), method: :delete, data: { confirm: "Press Ok to confirm deletion" } %> </td>
